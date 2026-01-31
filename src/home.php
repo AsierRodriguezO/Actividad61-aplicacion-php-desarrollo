@@ -24,18 +24,19 @@ $email = $_SESSION['email'] ?? '';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>CRUD PHP</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
 	<header>
-		<h1>APLICACION CRUD PHP</h1>
+		<h1>Conquistadores</h1>
 	</header>
 
 	<main>
-	Bienvenido, <?php echo htmlspecialchars($name); ?><br>
-    Email: <?php echo htmlspecialchars($email); ?>
+	<div class="welcome">Bienvenido, <?php echo htmlspecialchars($name); ?><br>
+    Email: <?php echo htmlspecialchars($email); ?></div>
 	
-	<p><a href="add.php">Alta</a></p>	
+	<div class="actions"><a href="add.php">Añadir</a></div>	
 
 	<table border="1">
 	<thead>
@@ -137,7 +138,7 @@ De los nueves campos de la tabla empleados solo se muestran algunos en la tabla 
 	</main>
 	<footer>
 		<p><a href="logout.php">Cerrar sesión (Sign out) <?php echo $_SESSION['username']; ?></a></p>
-    	Created by the IES Miguel Herrero team &copy; 2026
+    	Created by Asier Rodriguez Ormaechea
   	</footer>
 </div>
 </body>

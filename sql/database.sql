@@ -23,7 +23,7 @@ CREATE TABLE conquistadores (
 
 
 INSERT INTO usuarios (nombre_usuario, contrasena, correo) VALUES
-('asier2005', 'password123', 'asier.rodriguez@example.com'),
+('asier2005', 'usuario@1', 'asier@conquistador.com'),
 ('conquistador_master', 'securepass456', 'master@conquistadores.com'),
 ('historia_fan', 'history2024', 'historia.fan@email.com'),
 ('alejandro_fan', 'macedonia323', 'alexander@email.com'),

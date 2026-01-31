@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
 	<header>
-		<h1>APLICACION CRUD PHP</h1>
+		<h1>Mayores conquistadores</h1>
 	</header>
 	<main>				
 	<h2>Registro</h2>
@@ -37,7 +38,7 @@
 	</main>	
 	<footer>
 	<p><a href="login.php">Ya tienes una cuenta? Iniciar sesión (Sign in)</a></p>		
-	Created by the IES Miguel Herrero team &copy; 2026
+	Created by Asier Rodriguez Ormaechea
   	</footer>
 </div>
 </body>

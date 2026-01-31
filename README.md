@@ -20,4 +20,16 @@ Contiene lo siguiente:
 2. *mariadb*: Sistema gestor de base de datos en MariaDB
 3. *phpmyadmin*: Herramienta web para gestionar bases de datos MySQL/MariaDB
 
+## Instrucciones de ejecución
+
+Para ejecutar la aplicación en segundo plano y dejar el terminal libre:
+
+```bash
+sudo docker-compose up -d --build
+```
+
+Accede a la aplicación en http://tu-ip-publica (por ejemplo, http://3.83.140.152)
+
+phpMyAdmin en http://tu-ip-publica:8080
+
 
