@@ -40,20 +40,20 @@ if (!isset($_SESSION['username'])) {
 
 
 	//Se selecciona el registro a modificar: select
-	$sql="SELECT nombre_usuario, contrasena, correo, apellido, nombre, edad, puesto FROM empleados WHERE id = $identificador";
+	$sql="SELECT * FROM conquistadores WHERE conquistador_id = $identificador";
 	//echo 'SQL: ' . $sql . '<br>';
 	$resultado = $mysqli->query($sql);
 
 	//Se extrae el registro y lo guarda en el array $fila
 	//Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
 	$fila = $resultado->fetch_array();
-	$username = $fila['nombre_usuario'];
-	$password = $fila['contrasena'];
-	$email = $fila['correo'];
-	$surname = $fila['apellido'];
-	$name = $fila['nombre'];
-	$age = $fila['edad'];
-	$job = $fila['puesto'];
+	$nombre = $fila['nombre'];
+	$territorios = $fila['territorios_conquistados'];
+	$batallas = $fila['batallas_principales'];
+	$logros = $fila['logros_principales'];
+	$nacimiento = $fila['ano_nacimiento'];
+	$muerte = $fila['ano_muerte'];
+	$descripcion = $fila['descripcion'];
 
 	//Se cierra la conexión de base de datos
 	$mysqli->close();
@@ -63,48 +63,39 @@ if (!isset($_SESSION['username'])) {
 
 	<form action="edit_action.php" method="post">
 		<div>
-			<label for="email">Correo</label>
-			<input type="email" name="email" id="email" value="<?php echo $email;?>" readonly>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" id="nombre" value="<?php echo $nombre;?>" required>
 		</div>
 		<div>
-			<label for="username">Usuario</label>
-			<input type="text" name="username" id="username" value="<?php echo $username;?>" readonly>
+			<label for="territorios">Territorios Conquistados</label>
+			<textarea name="territorios" id="territorios" required><?php echo $territorios;?></textarea>
 		</div>
 		<div>
-			<label for="name">Contraseña</label>
-			<input type="password" name="password" id="password" value="<?php echo $password;?>" required>
+			<label for="batallas">Batallas Principales</label>
+			<textarea name="batallas" id="batallas"><?php echo $batallas;?></textarea>
 		</div>	
 		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" value="<?php echo $name;?>" >
+			<label for="logros">Logros Principales</label>
+			<textarea name="logros" id="logros"><?php echo $logros;?></textarea>
 		</div>
 
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" value="<?php echo $surname;?>">
+			<label for="nacimiento">Año Nacimiento</label>
+			<input type="number" name="nacimiento" id="nacimiento" value="<?php echo $nacimiento;?>">
 		</div>
 
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" value="<?php echo $age;?>">
+			<label for="muerte">Año Muerte</label>
+			<input type="number" name="muerte" id="muerte" value="<?php echo $muerte;?>">
 		</div>
 
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto">
-				<option value="<?php echo $job;?>" selected><?php echo $job;?></option>
-				<option value="administrativo">administrativo</option>
-				<option value="contable">contable</option>
-				<option value="dependiente">dependiente</option>
-				<option value="empleado">empleado</option>
-				<option value="gerente">gerente</option>
-				<option value="repartidor">repartidor</option>
-				<option value="repartidor">usuario</option>
-			</select>	
+			<label for="descripcion">Descripción</label>
+			<textarea name="descripcion" id="descripcion"><?php echo $descripcion;?></textarea>
 		</div>
 
 		<div >
-			<input type="hidden" name="identificador" value=<?php echo $identificador;?>>
+			<input type="hidden" name="identificador" value="<?php echo $identificador;?>">
 			<button type="submit" name="modifica" value="si">Aceptar</button>
 			<button type="button" onclick="location.href='home.php'">Cancelar</button>
 			

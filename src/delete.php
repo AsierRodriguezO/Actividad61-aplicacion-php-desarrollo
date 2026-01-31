@@ -33,12 +33,12 @@ $identificador = $_GET['identificador'];
 $identificador = $mysqli->real_escape_string($identificador);
 
 //Se realiza el borrado del registro: delete.
-$sql="DELETE FROM empleados WHERE id = $identificador";
+$sql="DELETE FROM conquistadores WHERE conquistador_id = $identificador";
 //echo 'SQL: ' . $sql . '<br>';
 $result = $mysqli->query($sql);
 //Se cierra la conexión de base de datos previamente abierta
 $mysqli->close();
-echo "<div>Empleado/a borrado correctamente...</div>";
+echo "<div>Conquistador borrado correctamente...</div>";
 echo "<a href='home.php'>Ver resultado</a>";
 //Se redirige a la página principal: home.php
 //header("Location:home.php");

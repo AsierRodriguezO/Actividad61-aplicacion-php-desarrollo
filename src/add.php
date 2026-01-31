@@ -26,44 +26,32 @@ La página: add.php se encargará de proceder a la inserción del registro en la
 
 	<form action="add_action.php" method="post">
 		<div>
-			<label for="email">Correo</label>
-			<input type="email" name="email" id="email" placeholder="correo electrónico" required>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" id="nombre" placeholder="nombre del conquistador" required>
 		</div>
 		<div>
-			<label for="username">Usuario</label>
-			<input type="text" name="username" id="username" placeholder="nombre usuario" required>
+			<label for="territorios">Territorios Conquistados</label>
+			<textarea name="territorios" id="territorios" placeholder="territorios conquistados" required></textarea>
 		</div>
 		<div>
-			<label for="name">Contraseña</label>
-			<input type="password" name="password" id="password" placeholder="contraseña" required>
+			<label for="batallas">Batallas Principales</label>
+			<textarea name="batallas" id="batallas" placeholder="batallas principales"></textarea>
 		</div>
 		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" placeholder="nombre">
+			<label for="logros">Logros Principales</label>
+			<textarea name="logros" id="logros" placeholder="logros principales"></textarea>
 		</div>
-
 		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" placeholder="apellido">
+			<label for="nacimiento">Año Nacimiento</label>
+			<input type="number" name="nacimiento" id="nacimiento" placeholder="año nacimiento">
 		</div>
-
 		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" placeholder="edad">
+			<label for="muerte">Año Muerte</label>
+			<input type="number" name="muerte" id="muerte" placeholder="año muerte">
 		</div>
-
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto">
-				<option value="" disabled selected>Seleccione un puesto</option>
-				<option value="administrativo">administrativo</option>
-				<option value="contable">contable</option>
-				<option value="dependiente">dependiente</option>
-				<option value="empleado">empleado</option>
-				<option value="gerente">gerente</option>
-				<option value="repartidor">repartidor</option>
-				<option value="repartidor">usuario</option>
-			</select>	
+			<label for="descripcion">Descripción</label>
+			<textarea name="descripcion" id="descripcion" placeholder="descripción"></textarea>
 		</div>
 
 		<div>

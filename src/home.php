@@ -14,8 +14,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$name = $_SESSION['name'] ?? '';
-$surname = $_SESSION['surname'] ?? '';
+$name = $_SESSION['username'] ?? '';
 $email = $_SESSION['email'] ?? '';
 ?>
 
@@ -33,7 +32,7 @@ $email = $_SESSION['email'] ?? '';
 	</header>
 
 	<main>
-	Bienvenido, <?php echo htmlspecialchars($name . " " . $surname); ?><br>
+	Bienvenido, <?php echo htmlspecialchars($name); ?><br>
     Email: <?php echo htmlspecialchars($email); ?>
 	
 	<p><a href="add.php">Alta</a></p>	
@@ -41,21 +40,23 @@ $email = $_SESSION['email'] ?? '';
 	<table border="1">
 	<thead>
 		<tr>
-			<th>Usuario</th>
 			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Edad</th>
-			<th>Puesto</th>
+			<th>Territorios Conquistados</th>
+			<th>Batallas Principales</th>
+			<th>Logros Principales</th>
+			<th>Año Nacimiento</th>
+			<th>Año Muerte</th>
+			<th>Descripción</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
-	<tbdody>
+	<tbody>
 
 <?php
 /*Se realiza una consulta de selección la tabla empleados ordenados y almacena todos los registros en una estructura especial PARECIDA a una "tabla" llamada $resultado.
 Cada fila y cada columna de la tabla se corresponde con un registro y campo de la tabla EMPLEADOS.
 */
-$sql="SELECT * FROM empleados ORDER BY apellido, nombre";
+$sql="SELECT * FROM conquistadores ORDER BY nombre";
 //echo $sql.'<br>';
 $resultado = $mysqli->query($sql);
 
@@ -116,23 +117,22 @@ De los nueves campos de la tabla empleados solo se muestran algunos en la tabla 
 
 	while($fila = $resultado->fetch_array()) {
 		echo "<tr>\n";
-		echo "<td>".$fila['nombre_usuario']."</td>\n";
 		echo "<td>".$fila['nombre']."</td>\n";
-		echo "<td>".$fila['apellido']."</td>\n";
-		echo "<td>".$fila['edad']."</td>\n";
-		echo "<td>".$fila['puesto']."</td>\n";
+		echo "<td>".$fila['territorios_conquistados']."</td>\n";
+		echo "<td>".$fila['batallas_principales']."</td>\n";
+		echo "<td>".$fila['logros_principales']."</td>\n";
+		echo "<td>".$fila['ano_nacimiento']."</td>\n";
+		echo "<td>".$fila['ano_muerte']."</td>\n";
+		echo "<td>".$fila['descripcion']."</td>\n";
 		echo "<td>";
-/* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
-Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
-Este forma de pasar el dato se conoce como: método GET*/
-		echo "<a href=\"edit.php?identificador=$fila[id]\">Edición</a>\n";
-		echo "<a href=\"delete.php?identificador=$fila[id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el empleado/a?')\" >Baja</a></td>\n";
+		echo "<a href=\"edit.php?identificador=$fila[conquistador_id]\">Edición</a>\n";
+		echo "<a href=\"delete.php?identificador=$fila[conquistador_id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el conquistador?')\" >Baja</a></td>\n";
 		echo "</td>";
 		echo "</tr>\n";
 	}//fin mientras
  }//fin si
 ?>
-	</tbdody>
+	</tbody>
 	</table>
 	</main>
 	<footer>

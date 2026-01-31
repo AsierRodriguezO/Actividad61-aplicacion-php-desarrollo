@@ -46,7 +46,7 @@ include_once("config.php");
 			//echo 'Email: ' . $email . '<br>';
 			//echo 'Usuario: ' . $username . '<br>';
 			//echo 'Contraseña: ' . $password . '<br>';
-			$result = $mysqli->query("INSERT INTO empleados (correo, nombre_usuario, contrasena) VALUES ('$email', '$username', '$password')");	
+			$result = $mysqli->query("INSERT INTO usuarios (correo, nombre_usuario, contrasena) VALUES ('$email', '$username', '$password')");	
 			//Se cierra la conexión
 			$mysqli->close();
 			//echo "<div>Usuario registrado correctamente...</div>";

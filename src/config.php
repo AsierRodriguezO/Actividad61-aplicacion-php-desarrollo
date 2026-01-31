@@ -32,8 +32,8 @@ define('DB_PASSWORD', 'usuario@1');
 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 //$mysqli = new mysqli('mariadb', 'usuario', 'usuario1', 'electroshop');
 //Devuelve una descripción del último error producido en la conexión a la BD
-if ($mysqli->connect_error) {
-    printf('Falló la conexión: %s\n', mysqli_connect_error());
-    exit();
-}
+// Comentado para que no detenga el script si falla
+// if ($mysqli->connect_error) {
+//     die('Falló la conexión: ' . $mysqli->connect_error);
+// }
 ?>

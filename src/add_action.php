@@ -38,36 +38,31 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$email = $mysqli->real_escape_string($_POST['email']);
-	$username = $mysqli->real_escape_string($_POST['username']);
-	$name = $mysqli->real_escape_string($_POST['name']);
-	$password = $mysqli->real_escape_string($_POST['password']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$job = $mysqli->real_escape_string($_POST['job']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-    if (empty($age)) {
-    $age = "NULL";} 
+	$nombre = $mysqli->real_escape_string($_POST['nombre']);
+	$territorios = $mysqli->real_escape_string($_POST['territorios']);
+	$batallas = $mysqli->real_escape_string($_POST['batallas']);
+	$logros = $mysqli->real_escape_string($_POST['logros']);
+	$nacimiento = $mysqli->real_escape_string($_POST['nacimiento']);
+	$muerte = $mysqli->real_escape_string($_POST['muerte']);
+	$descripcion = $mysqli->real_escape_string($_POST['descripcion']);
+    if (empty($nacimiento)) {
+    $nacimiento = "NULL";} 
 	else {
-    $age = intval($age);}
+    $nacimiento = intval($nacimiento);}
+    if (empty($muerte)) {
+    $muerte = "NULL";} 
+	else {
+    $muerte = intval($muerte);}
 	
-/*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
-Los caracteres codificados son NUL (ASCII 0), \n, \r, \, ', ", y Control-Z.
-Ejemplo: Entrada sin escapar: "O'Reilly" contiene una comilla simple (').
-Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando que la comilla se interprete como el fin de una cadena en SQL.
-*/
 
 //Se comprueba si algunos campos del formulario están vacíos. Es decir no tienen ningún valor útil
-	if(empty($email) || empty($username) || empty($password) ) 
+	if(empty($nombre) || empty($territorios)) 
 	{
-		if(empty($email)) {
-			echo "<div>Campo correo electrónico vacío.</div>";
+		if(empty($nombre)) {
+			echo "<div>Campo nombre vacío.</div>";
 		}
-		if(empty($username)) {
-			echo "<div>Campo nombre de usuario vacío.</div>";
-		}
-		if(empty($password)) {
-			echo "<div>Campo contraseña vacío.</div>";
+		if(empty($territorios)) {
+			echo "<div>Campo territorios conquistados vacío.</div>";
 		}
 //Enlace a la página anterior
 		//Se cierra la conexión
@@ -77,12 +72,12 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Sino existen campos de formulario vacíos se procede al alta del nuevo registro
 	{
 	//Se ejecuta una sentencia SQL. Inserta (da de alta) el nuevo registro: insert.
-		$sql="INSERT INTO empleados (correo, nombre_usuario, contrasena, nombre, apellido, edad, puesto) VALUES ('$email', '$username', '$password', '$name', '$surname', $age, '$job')";
+		$sql="INSERT INTO conquistadores (nombre, territorios_conquistados, batallas_principales, logros_principales, ano_nacimiento, ano_muerte, descripcion) VALUES ('$nombre', '$territorios', '$batallas', '$logros', $nacimiento, $muerte, '$descripcion')";
 		//echo 'SQL: ' . $sql . '<br>';
 		$result = $mysqli->query($sql);	
 		//Se cierra la conexión
 		$mysqli->close();
-		echo "<div>Empleado añadido correctamente...</div>";
+		echo "<div>Conquistador añadido correctamente...</div>";
 		echo "<a href='home.php'>Ver resultado</a>";
 		//Se redirige a la página home: home.php
 		//header("Location:home.php");

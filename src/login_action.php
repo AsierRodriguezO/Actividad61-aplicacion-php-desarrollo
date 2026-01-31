@@ -40,7 +40,7 @@ session_start();
 		{
 			//Se comprueba si los datos son correctos. Se busca el usuario en la base de datos por su email y se compara su contraseña
 			//Se ejecuta una sentencia SQL. Selecciona (busca) el registro
-			$sql="SELECT nombre_usuario, nombre, apellido, correo, contrasena FROM empleados WHERE correo = '$email'";
+			$sql="SELECT nombre_usuario, correo, contrasena FROM usuarios WHERE correo = '$email'";
 			//echo 'SQL: ' . $sql . '<br>';
 			$resultado = $mysqli->query($sql);
 			if ($resultado->num_rows === 0) {
@@ -65,14 +65,10 @@ session_start();
 				else {
 					//Datos correctos
 					//echo $fila['nombre_usuario'].'<br>';
-					//echo $fila['nombre'].'<br>';
-					//echo $fila['apellido'].'<br>';
 					//echo $fila['correo'].'<br>';
 
 					//Se crean las variables de sesión
 					$_SESSION['username'] = $fila['nombre_usuario'];
-					$_SESSION['name'] = $fila['nombre'];
-					$_SESSION['surname'] = $fila['apellido'];
 					$_SESSION['email'] = $fila['correo'];
 					header("Location: home.php");
 					exit();

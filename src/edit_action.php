@@ -35,36 +35,30 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 */
 
 	$identificador = $mysqli->real_escape_string($_POST['identificador']);
-	$username = $mysqli->real_escape_string($_POST['username']);
-	$password = $mysqli->real_escape_string($_POST['password']);
-	$email = $mysqli->real_escape_string($_POST['email']);
-	$name = $mysqli->real_escape_string($_POST['name']);
-	$surname = $mysqli->real_escape_string($_POST['surname']);
-	$age = $mysqli->real_escape_string($_POST['age']);
-	$job = $mysqli->real_escape_string($_POST['job']);
-	if (empty($age)) {
-    $age = "NULL";} 
+	$nombre = $mysqli->real_escape_string($_POST['nombre']);
+	$territorios = $mysqli->real_escape_string($_POST['territorios']);
+	$batallas = $mysqli->real_escape_string($_POST['batallas']);
+	$logros = $mysqli->real_escape_string($_POST['logros']);
+	$nacimiento = $mysqli->real_escape_string($_POST['nacimiento']);
+	$muerte = $mysqli->real_escape_string($_POST['muerte']);
+	$descripcion = $mysqli->real_escape_string($_POST['descripcion']);
+	if (empty($nacimiento)) {
+    $nacimiento = "NULL";} 
 	else {
-    $age = intval($age);}
-
-/*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-Esta función es usada para crear una cadena SQL legal que se puede usar en una sentencia SQL. 
-Los caracteres codificados son NUL (ASCII 0), \n, \r, \, ', ", y Control-Z.
-Ejemplo: Entrada sin escapar: "O'Reilly" contiene una comilla simple (').
-Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando que la comilla se interprete como el fin de una cadena en SQL.
-*/	
+    $nacimiento = intval($nacimiento);}
+	if (empty($muerte)) {
+    $muerte = "NULL";} 
+	else {
+    $muerte = intval($muerte);}
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($email) || empty($username) || empty($password)) 
+	if(empty($nombre) || empty($territorios)) 
 	{
-		if(empty($email)) {
-			echo "<div>Campo email vacío.</div>";
+		if(empty($nombre)) {
+			echo "<div>Campo nombre vacío.</div>";
 		}
-		if(empty($username)) {
-			echo "<div>Campo nombre de usuario vacío.</div>";
-		}
-		if(empty($password)) {
-			echo "<div>Campo contraseña vacío.</div>";
+		if(empty($territorios)) {
+			echo "<div>Campo territorios conquistados vacío.</div>";
 		}
 		$mysqli->close();
 		echo "<a href='javascript:self.history.back();'>Volver atras</a>";
@@ -72,11 +66,11 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Se realiza la modificación de un registro de la BD. 
 	{
 		//Se actualiza el registro a modificar: update
-		$sql="UPDATE empleados SET nombre_usuario = '$username', contrasena = '$password', correo = '$email', nombre = '$name', apellido = '$surname',  edad = $age, puesto = '$job' WHERE id = $identificador";
+		$sql="UPDATE conquistadores SET nombre = '$nombre', territorios_conquistados = '$territorios', batallas_principales = '$batallas', logros_principales = '$logros', ano_nacimiento = $nacimiento, ano_muerte = $muerte, descripcion = '$descripcion' WHERE conquistador_id = $identificador";
 		//echo 'SQL: ' . $sql . '<br>';
 		$mysqli->query($sql);
 		$mysqli->close();
-        echo "<div>Empleado editado correctamente...</div>";
+        echo "<div>Conquistador editado correctamente...</div>";
 		echo "<a href='home.php'>Ver resultado</a>";
         //Se redirige a la página principal: home.php
         //header("Location: home.php");
