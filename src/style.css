@@ -3,6 +3,10 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #000000 0%, #8B0000 100%);
+    background-image: url('images/conquistadores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     color: #FFD700;

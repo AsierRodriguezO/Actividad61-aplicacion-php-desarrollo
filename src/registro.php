@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,6 +29,10 @@
 		<div>
 			<label for="name">Contraseña</label>
 			<input type="password" name="password" id="password" placeholder="contraseña" required>
+		</div>
+		<div>
+			<label for="repeat_password">Repetir Contraseña</label>
+			<input type="password" name="repeat_password" id="repeat_password" placeholder="repetir contraseña" required>
 		</div>
 		<div>
 			<button type="submit" name="inserta" value="si">Aceptar</button>

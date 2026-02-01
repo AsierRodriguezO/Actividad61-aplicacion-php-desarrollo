@@ -10,11 +10,13 @@ session_start();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Inicio</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
 	<header>
-		<h1>APLICACION CRUD PHP</h1>
+		<h1>Mayores conquistadores</h1>
 	</header>
 	<main>				
 	<?php
@@ -38,9 +40,9 @@ session_start();
 		} //fin si
 		else 
 		{
-			//Se comprueba si los datos son correctos. Se busca el usuario en la base de datos por su email y se compara su contraseña
+			//Se comprueba si los datos son correctos. Se busca el usuario en la base de datos por su email o username y se compara su contraseña
 			//Se ejecuta una sentencia SQL. Selecciona (busca) el registro
-			$sql="SELECT nombre_usuario, correo, contrasena FROM usuarios WHERE correo = '$email'";
+			$sql="SELECT nombre_usuario, correo, contrasena FROM usuarios WHERE correo = '$email' OR nombre_usuario = '$email'";
 			//echo 'SQL: ' . $sql . '<br>';
 			$resultado = $mysqli->query($sql);
 			if ($resultado->num_rows === 0) {
@@ -53,7 +55,7 @@ session_start();
 			{
 				//Obtiene el registro del usuario y lo guarda en el array asociativo $fila
 				//Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
-				//Comprueba la contraseña. Recuerda que en este ejemplo la contraseña se almacena en texto plano (no es seguro). En un entorno real debe estar cifrada o al menos hasheada
+				//Comprueba la contraseña. Recuerda que en este ejemplo la contraseña se almacena hasheada
 				$fila = $resultado->fetch_array();
 				if ($password !== $fila['contrasena']) {
 					//Contraseña incorrecta

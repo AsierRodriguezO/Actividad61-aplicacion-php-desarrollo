@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Altas</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,6 +55,14 @@ La página: add.php se encargará de proceder a la inserción del registro en la
 			<label for="descripcion">Descripción</label>
 			<textarea name="descripcion" id="descripcion" placeholder="descripción"></textarea>
 		</div>
+		<div>
+			<label for="categoria">Categoría</label>
+			<select name="categoria" id="categoria">
+				<option value="Antiguo">Antiguo</option>
+				<option value="Medieval">Medieval</option>
+				<option value="Moderno">Moderno</option>
+			</select>
+		</div>
 
 		<div>
 			<button type="submit" name="inserta" value="si">Aceptar</button>
@@ -65,7 +74,7 @@ La página: add.php se encargará de proceder a la inserción del registro en la
 	<footer>
 		<p><a href="home.php">Volver</a></p>	
 		<p><a href="logout.php">Cerrar sesión (Sign out) <?php echo $_SESSION['username']; ?></a></p>
-		Created by the IES Miguel Herrero team &copy; 2026
+		Created by Asier Rodriguez Ormaechea
   	</footer>
 </div>
 </body>

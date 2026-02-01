@@ -18,7 +18,8 @@ CREATE TABLE conquistadores (
     logros_principales TEXT,
     ano_nacimiento INT,
     ano_muerte INT,
-    descripcion TEXT
+    descripcion TEXT,
+    categoria VARCHAR(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -35,15 +36,15 @@ INSERT INTO usuarios (nombre_usuario, contrasena, correo) VALUES
 ('timur_lame', 'samarkand1405', 'tamerlane@asia.com');
 
 
-INSERT INTO conquistadores (nombre, territorios_conquistados, batallas_principales, logros_principales, ano_nacimiento, ano_muerte, descripcion) VALUES
-('Alejandro Magno', 'Macedonia, Grecia, Persia, Egipto, Asia Menor, India', 'Gránico, Issos, Gaugamela, Hidaspes', 'Creó uno de los mayores imperios de la antigüedad, extendió la cultura griega hasta la India', -356, -323, 'Rey de Macedonia conocido como el más grande comandante militar de la historia antigua'),
-('Julio Cesar', 'Galia, Britania, Germania, Egipto, Hispania', 'Alesia, Farsalia, Munda, Farsalo', 'Conquistó la Galia, reformó el calendario romano, estableció la dictadura perpetua', -100, -44, 'General y político romano que transformó la República Romana en el Imperio Romano'),
-('Gengis Kan', 'Mongolia, China, Asia Central, Persia, Rusia', 'Kalka, Yehuling, Indus', 'Unificó las tribus mongoles, creó el mayor imperio terrestre contiguo de la historia', 1162, 1227, 'Fundador y primer Gran Khan del Imperio Mongol, el mayor imperio contiguo de la historia'),
-('Hernan Cortes', 'Mexico, Imperio Azteca', 'La Noche Triste, Sitio de Tenochtitlan', 'Conquistó el Imperio Azteca, estableció la Nueva España', 1485, 1547, 'Conquistador español que derrocó al Imperio Azteca y reclamó México para la Corona Española'),
-('Francisco Pizarro', 'Peru, Imperio Inca', 'Cajamarca, Cuzco', 'Conquistó el Imperio Inca, fundó Lima', 1478, 1541, 'Conquistador español que derrocó al Imperio Inca y estableció el Virreinato del Perú'),
-('Ciro el Grande', 'Persia, Media, Lidia, Babilonia', 'Opis, Pasargada', 'Fundó el Imperio Persa, liberó a los judíos de Babilonia, estableció los derechos humanos', -600, -530, 'Fundador del Imperio Aqueménida, conocido por su tolerancia religiosa y política'),
-('Carlomagno', 'Francia, Alemania, Italia, España', 'Roncesvalles, Sajonia', 'Unificó Europa occidental, coronado emperador romano, inició el Renacimiento Carolingio', 742, 814, 'Rey de los francos y primer emperador del Sacro Imperio Romano Germánico'),
-('Napoleon Bonaparte', 'Francia, Italia, Egipto, Europa Central', 'Austerlitz, Waterloo, Marengo', 'Conquistó gran parte de Europa, estableció el Código Napoleónico, reformó Francia', 1769, 1821, 'General y emperador francés que dominó Europa durante las Guerras Napoleónicas'),
-('Tamerlano', 'Asia Central, Persia, India, Siria', 'Ankara, Delhi', 'Fundó el Imperio Timúrida, conquistó gran parte de Asia Central y Medio Oriente', 1336, 1405, 'Conquistador turco-mongol que estableció el mayor imperio de Asia Central desde Gengis Kan'),
-('Attila', 'Hungría, Germania, Galia, Italia', 'Catalaunian Plains, Orleans', 'Lideró el Imperio Huno, aterrorizó al Imperio Romano, conocido como el Azote de Dios', 406, 453, 'Rey de los hunos que lideró incursiones devastadoras contra el Imperio Romano de Occidente');
+INSERT INTO conquistadores (nombre, territorios_conquistados, batallas_principales, logros_principales, ano_nacimiento, ano_muerte, descripcion, categoria) VALUES
+('Alejandro Magno', 'Macedonia, Grecia, Persia, Egipto, Asia Menor, India', 'Gránico, Issos, Gaugamela, Hidaspes', 'Creó uno de los mayores imperios de la antigüedad, extendió la cultura griega hasta la India', -356, -323, 'Rey de Macedonia conocido como el más grande comandante militar de la historia antigua', 'Antiguo'),
+('Julio Cesar', 'Galia, Britania, Germania, Egipto, Hispania', 'Alesia, Farsalia, Munda, Farsalo', 'Conquistó la Galia, reformó el calendario romano, estableció la dictadura perpetua', -100, -44, 'General y político romano que transformó la República Romana en el Imperio Romano', 'Antiguo'),
+('Gengis Kan', 'Mongolia, China, Asia Central, Persia, Rusia', 'Kalka, Yehuling, Indus', 'Unificó las tribus mongoles, creó el mayor imperio terrestre contiguo de la historia', 1162, 1227, 'Fundador y primer Gran Khan del Imperio Mongol, el mayor imperio contiguo de la historia', 'Medieval'),
+('Hernan Cortes', 'Mexico, Imperio Azteca', 'La Noche Triste, Sitio de Tenochtitlan', 'Conquistó el Imperio Azteca, estableció la Nueva España', 1485, 1547, 'Conquistador español que derrocó al Imperio Azteca y reclamó México para la Corona Española', 'Moderno'),
+('Francisco Pizarro', 'Peru, Imperio Inca', 'Cajamarca, Cuzco', 'Conquistó el Imperio Inca, fundó Lima', 1478, 1541, 'Conquistador español que derrocó al Imperio Inca y estableció el Virreinato del Perú', 'Moderno'),
+('Ciro el Grande', 'Persia, Media, Lidia, Babilonia', 'Opis, Pasargada', 'Fundó el Imperio Persa, liberó a los judíos de Babilonia, estableció los derechos humanos', -600, -530, 'Fundador del Imperio Aqueménida, conocido por su tolerancia religiosa y política', 'Antiguo'),
+('Carlomagno', 'Francia, Alemania, Italia, España', 'Roncesvalles, Sajonia', 'Unificó Europa occidental, coronado emperador romano, inició el Renacimiento Carolingio', 742, 814, 'Rey de los francos y primer emperador del Sacro Imperio Romano Germánico', 'Medieval'),
+('Napoleon Bonaparte', 'Francia, Italia, Egipto, Europa Central', 'Austerlitz, Waterloo, Marengo', 'Conquistó gran parte de Europa, estableció el Código Napoleónico, reformó Francia', 1769, 1821, 'General y emperador francés que dominó Europa durante las Guerras Napoleónicas', 'Moderno'),
+('Tamerlano', 'Asia Central, Persia, India, Siria', 'Ankara, Delhi', 'Fundó el Imperio Timúrida, conquistó gran parte de Asia Central y Medio Oriente', 1336, 1405, 'Conquistador turco-mongol que estableció el mayor imperio de Asia Central desde Gengis Kan', 'Medieval'),
+('Attila', 'Hungría, Germania, Galia, Italia', 'Catalaunian Plains, Orleans', 'Lideró el Imperio Huno, aterrorizó al Imperio Romano, conocido como el Azote de Dios', 406, 453, 'Rey de los hunos que lideró incursiones devastadoras contra el Imperio Romano de Occidente', 'Antiguo');
 

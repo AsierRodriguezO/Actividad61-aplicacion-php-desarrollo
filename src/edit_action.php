@@ -9,12 +9,13 @@ include_once("config.php");
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Modificaciones</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
 	<header>
-		<h1>APLICACION CRUD PHP</h1>
+		<h1>Conquistadores</h1>
 	</header>
 	<main>				
 
@@ -43,6 +44,7 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 	$nacimiento = $mysqli->real_escape_string($_POST['nacimiento']);
 	$muerte = $mysqli->real_escape_string($_POST['muerte']);
 	$descripcion = $mysqli->real_escape_string($_POST['descripcion']);
+	$categoria = $mysqli->real_escape_string($_POST['categoria']);
 	if (empty($nacimiento)) {
     $nacimiento = "NULL";} 
 	else {
@@ -67,7 +69,7 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 	else //Se realiza la modificación de un registro de la BD. 
 	{
 		//Se actualiza el registro a modificar: update
-		$sql="UPDATE conquistadores SET nombre = '$nombre', territorios_conquistados = '$territorios', batallas_principales = '$batallas', logros_principales = '$logros', ano_nacimiento = $nacimiento, ano_muerte = $muerte, descripcion = '$descripcion' WHERE conquistador_id = $identificador";
+		$sql="UPDATE conquistadores SET nombre = '$nombre', territorios_conquistados = '$territorios', batallas_principales = '$batallas', logros_principales = '$logros', ano_nacimiento = $nacimiento, ano_muerte = $muerte, descripcion = '$descripcion', categoria = '$categoria' WHERE conquistador_id = $identificador";
 		//echo 'SQL: ' . $sql . '<br>';
 		$mysqli->query($sql);
 		$mysqli->close();

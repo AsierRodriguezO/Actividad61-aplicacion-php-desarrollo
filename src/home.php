@@ -23,7 +23,8 @@ $email = $_SESSION['email'] ?? '';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>CRUD PHP</title>
+	<title>Mayores conquistadores</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,6 +49,7 @@ $email = $_SESSION['email'] ?? '';
 			<th>Año Nacimiento</th>
 			<th>Año Muerte</th>
 			<th>Descripción</th>
+			<th>Categoría</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
@@ -125,6 +127,7 @@ De los nueves campos de la tabla empleados solo se muestran algunos en la tabla 
 		echo "<td>".$fila['ano_nacimiento']."</td>\n";
 		echo "<td>".$fila['ano_muerte']."</td>\n";
 		echo "<td>".$fila['descripcion']."</td>\n";
+		echo "<td>".$fila['categoria']."</td>\n";
 		echo "<td>";
 		echo "<a href=\"edit.php?identificador=$fila[conquistador_id]\">Edición</a>\n";
 		echo "<a href=\"delete.php?identificador=$fila[conquistador_id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el conquistador?')\" >Baja</a></td>\n";

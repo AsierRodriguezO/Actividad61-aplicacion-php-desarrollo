@@ -17,12 +17,13 @@ if (!isset($_SESSION['username'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Modificaciones</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div>
 	<header>
-		<h1>APLICACION CRUD PHP</h1>
+		<h1>Conquistadores</h1>
 	</header>
 	
 	<main>				
@@ -55,6 +56,7 @@ if (!isset($_SESSION['username'])) {
 	$nacimiento = $fila['ano_nacimiento'];
 	$muerte = $fila['ano_muerte'];
 	$descripcion = $fila['descripcion'];
+	$categoria = $fila['categoria'];
 
 	//Se cierra la conexión de base de datos
 	$mysqli->close();
@@ -94,6 +96,14 @@ if (!isset($_SESSION['username'])) {
 			<label for="descripcion">Descripción</label>
 			<textarea name="descripcion" id="descripcion"><?php echo $descripcion;?></textarea>
 		</div>
+		<div>
+			<label for="categoria">Categoría</label>
+			<select name="categoria" id="categoria">
+				<option value="Antiguo" <?php if ($categoria == 'Antiguo') echo 'selected'; ?>>Antiguo</option>
+				<option value="Medieval" <?php if ($categoria == 'Medieval') echo 'selected'; ?>>Medieval</option>
+				<option value="Moderno" <?php if ($categoria == 'Moderno') echo 'selected'; ?>>Moderno</option>
+			</select>
+		</div>
 
 		<div >
 			<input type="hidden" name="identificador" value="<?php echo $identificador;?>">
@@ -109,7 +119,7 @@ if (!isset($_SESSION['username'])) {
 	<footer>
 		<p><a href="home.php">Volver</a></p>	
 		<p><a href="logout.php">Cerrar sesión (Sign out) <?php echo $_SESSION['username']; ?></a></p>
-		Created by the IES Miguel Herrero team &copy; 2026
+		Created by Asier Rodriguez Ormaechea
   	</footer>
 </div>
 </body>
